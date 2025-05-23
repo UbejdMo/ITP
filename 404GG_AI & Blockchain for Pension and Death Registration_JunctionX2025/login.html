@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Kosovo Pension and Death Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom gradient for header */
+      .header-gradient {
+        background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+      }
+      /* Smooth hover animation for card */
+      .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+      /* Button transitions */
+      .btn {
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen" style="height: 100%">
+    <!-- Header -->
+    <header class="header-gradient text-white shadow-lg">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-2xl font-bold">Kosovo Pension & Death Registration</h1>
+        <nav class="hidden md:flex space-x-4"></nav>
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobileMenuBtn"
+          class="md:hidden text-white focus:outline-none"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden bg-blue-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 py-2">
+          <span class="block py-2 text-gray-400 cursor-not-allowed"
+            >Logout</span
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex items-center justify-center min-h-[calc(100vh-12rem)]"
+    >
+      <div
+        class="card bg-white p-8 rounded-xl shadow-md border-l-4 border-blue-600 w-full max-w-md"
+      >
+        <div class="flex items-center space-x-4 mb-6">
+          <svg
+            class="w-8 h-8 text-blue-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+            ></path>
+          </svg>
+          <h1 class="text-3xl font-extrabold text-gray-900">Login</h1>
+        </div>
+        <form id="loginForm">
+          <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2" for="id"
+              >ID Number</label
+            >
+            <input
+              type="text"
+              id="id"
+              class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 font-medium mb-2" for="password"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6" style="margin-top: 4%">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p>
+          © 2025 Kosovo Pension and Death Registration Platform. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document.getElementById("mobileMenuBtn").addEventListener("click", () => {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      document.getElementById("loginForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const id = document.getElementById("id").value;
+        const password = document.getElementById("password").value;
+        if (id === "12" && password === "12") {
+          window.location.href = "hospital.html";
+        } else if (id === "123" && password === "123") {
+          window.location.href = "dashboard.html";
+        } else {
+          alert(
+            "Invalid ID or password. Please use ID: 12, Password: 12 for Hospital Dashboard, or ID: 123, Password: 123 for Registration Dashboard."
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

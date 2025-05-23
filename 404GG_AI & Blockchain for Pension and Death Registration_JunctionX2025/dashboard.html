@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Kosovo Pension and Death Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom gradient for header */
+      .header-gradient {
+        background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+      }
+      /* Smooth hover animation for cards */
+      .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+      /* Button transitions for links */
+      .link-btn {
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+      .link-btn:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen" style="height: 100%">
+    <!-- Header -->
+    <header class="header-gradient text-white shadow-lg">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-2xl font-bold">Kosovo Pension & Death Registration</h1>
+        <nav class="hidden md:flex space-x-4">
+          <a
+            href="login.html"
+            class="text-white hover:text-gray-200 font-medium"
+            >Logout</a
+          >
+        </nav>
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobileMenuBtn"
+          class="md:hidden text-white focus:outline-none"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden bg-blue-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 py-2">
+          <a
+            href="dashboard.html"
+            class="block py-2 text-white hover:text-gray-200"
+            >Dashboard</a
+          >
+          <a
+            href="hospital.html"
+            class="block py-2 text-white hover:text-gray-200"
+            >Hospital</a
+          >
+          <a href="login.html" class="block py-2 text-white hover:text-gray-200"
+            >Logout</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-8">
+        Select a Service
+      </h2>
+      <div class="flex flex-col gap-6">
+        <div
+          onclick="window.location.href='pension.html'"
+          class="card bg-white p-6 rounded-xl shadow-md cursor-pointer border-l-4 border-blue-600"
+        >
+          <div class="flex items-center space-x-4">
+            <svg
+              class="w-8 h-8 text-blue-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900">
+                Pension Registration
+              </h3>
+              <p class="text-gray-600 mt-1">
+                Apply for or renew your pension. Complete the KYC process and
+                verify your citizenship and location.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          onclick="window.location.href='death.html'"
+          class="card bg-white p-6 rounded-xl shadow-md cursor-pointer border-l-4 border-blue-600"
+        >
+          <div class="flex items-center space-x-4">
+            <svg
+              class="w-8 h-8 text-blue-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
+              ></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900">
+                Death Registration
+              </h3>
+              <p class="text-gray-600 mt-1">
+                Register a death (natural or unnatural) with verification and
+                obtain a death certificate.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6 text-center space-x-4"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6" style="margin-top: 12%">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p>
+          © 2025 Kosovo Pension and Death Registration Platform. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document.getElementById("mobileMenuBtn").addEventListener("click", () => {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>

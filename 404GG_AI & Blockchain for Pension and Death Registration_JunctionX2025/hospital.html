@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Dashboard - Kosovo Pension and Death Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom gradient for header */
+      .header-gradient {
+        background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+      }
+      /* Smooth hover animation for cards */
+      .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+      /* Button transitions */
+      .btn {
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen" style="height: 100%">
+    <!-- Header -->
+    <header class="header-gradient text-white shadow-lg">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-2xl font-bold">Kosovo Pension & Death Registration</h1>
+        <nav class="hidden md:flex space-x-4">
+          <a
+            href="login.html"
+            class="text-white hover:text-gray-200 font-medium"
+            >Logout</a
+          >
+        </nav>
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobileMenuBtn"
+          class="md:hidden text-white focus:outline-none"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden bg-blue-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 py-2">
+          <a
+            href="dashboard.html"
+            class="block py-2 text-white hover:text-gray-200"
+            >Dashboard</a
+          >
+          <a
+            href="hospital.html"
+            class="block py-2 text-white hover:text-gray-200"
+            >Hospital</a
+          >
+          <a href="login.html" class="block py-2 text-white hover:text-gray-200"
+            >Logout</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex items-center space-x-4 mb-8">
+        <svg
+          class="w-8 h-8 text-blue-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h-2m-2 0h-2m-2 0h-2m-2 0h-2M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a2 2 0 012-2h2a2 2 0 012 2v5m-4 0h4"
+          ></path>
+        </svg>
+        <h1 class="text-3xl font-extrabold text-gray-900">
+          Hospital Dashboard
+        </h1>
+      </div>
+      <div
+        class="card bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-600"
+      >
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">
+          Death Registration Applications (Family Medicine)
+        </h2>
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="bg-blue-100 text-gray-900">
+                <th
+                  class="p-3 text-left font-semibold border-b border-gray-200"
+                >
+                  Applicant
+                </th>
+                <th
+                  class="p-3 text-left font-semibold border-b border-gray-200"
+                >
+                  Deceased
+                </th>
+                <th
+                  class="p-3 text-left font-semibold border-b border-gray-200"
+                >
+                  Date of Death
+                </th>
+                <th
+                  class="p-3 text-left font-semibold border-b border-gray-200"
+                >
+                  Cause of Death
+                </th>
+                <th
+                  class="p-3 text-left font-semibold border-b border-gray-200"
+                >
+                  Place of Death
+                </th>
+                <th
+                  class="p-3 text-left font-semibold border-b border-gray-200"
+                >
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b hover:bg-gray-50">
+                <td class="p-3 text-gray-600">John Doe (123456)</td>
+                <td class="p-3 text-gray-600">Jane Doe</td>
+                <td class="p-3 text-gray-600">2025-05-10</td>
+                <td class="p-3 text-gray-600">Natural</td>
+                <td class="p-3 text-gray-600">Pristina</td>
+                <td class="p-3">
+                  <button
+                    onclick="approveApplication(1)"
+                    class="btn bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 mr-2"
+                  >
+                    Approve
+                  </button>
+                  <button
+                    onclick="declineApplication(1)"
+                    class="btn bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700"
+                  >
+                    Decline
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b hover:bg-gray-50">
+                <td class="p-3 text-gray-600">Alice Smith (789012)</td>
+                <td class="p-3 text-gray-600">Bob Smith</td>
+                <td class="p-3 text-gray-600">2025-05-12</td>
+                <td class="p-3 text-gray-600">Natural</td>
+                <td class="p-3 text-gray-600">Gjilan</td>
+                <td class="p-3">
+                  <button
+                    onclick="approveApplication(2)"
+                    class="btn bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 mr-2"
+                  >
+                    Approve
+                  </button>
+                  <button
+                    onclick="declineApplication(2)"
+                    class="btn bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700"
+                  >
+                    Decline
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="mt-6 text-center space-x-6"></div>
+      <br />
+      <br /><br />
+      <div
+        class="card bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-600"
+      >
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">
+          Death Registration Applications (Forensic Medicine)
+        </h2>
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="bg-blue-100 text-gray-900">
+                <th
+                  class="p-3 text-left font-semibold border-b border-gray-200"
+                >
+                  Applicant
+                </th>
+                <th
+                  class="p-3 text-left font-semibold border-b border-gray-200"
+                >
+                  Deceased
+                </th>
+                <th
+                  class="p-3 text-left font-semibold border-b border-gray-200"
+                >
+                  Date of Death
+                </th>
+                <th
+                  class="p-3 text-left font-semibold border-b border-gray-200"
+                >
+                  Cause of Death
+                </th>
+                <th
+                  class="p-3 text-left font-semibold border-b border-gray-200"
+                >
+                  Place of Death
+                </th>
+                <th
+                  class="p-3 text-left font-semibold border-b border-gray-200"
+                >
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b hover:bg-gray-50">
+                <td class="p-3 text-gray-600">Jack Daniels (123456)</td>
+                <td class="p-3 text-gray-600">Dane Joe</td>
+                <td class="p-3 text-gray-600">2025-05-10</td>
+                <td class="p-3 text-gray-600">Unnatural</td>
+                <td class="p-3 text-gray-600">Pristina</td>
+                <td class="p-3">
+                  <button
+                    onclick="approveApplication(1)"
+                    class="btn bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 mr-2"
+                  >
+                    Approve
+                  </button>
+                  <button
+                    onclick="declineApplication(1)"
+                    class="btn bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700"
+                  >
+                    Decline
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b hover:bg-gray-50">
+                <td class="p-3 text-gray-600">Donnie Smith (789012)</td>
+                <td class="p-3 text-gray-600">JJ Smith</td>
+                <td class="p-3 text-gray-600">2025-05-12</td>
+                <td class="p-3 text-gray-600">Unnatural</td>
+                <td class="p-3 text-gray-600">Gjilan</td>
+                <td class="p-3">
+                  <button
+                    onclick="approveApplication(2)"
+                    class="btn bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 mr-2"
+                  >
+                    Approve
+                  </button>
+                  <button
+                    onclick="declineApplication(2)"
+                    class="btn bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700"
+                  >
+                    Decline
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6" style="margin-top: 9.5%">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p>
+          © 2025 Kosovo Pension and Death Registration Platform. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document.getElementById("mobileMenuBtn").addEventListener("click", () => {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      function approveApplication(id) {
+        alert(`Approved application ${id}`);
+      }
+      function declineApplication(id) {
+        alert(`Declined application ${id}`);
+      }
+    </script>
+  </body>
+</html>
